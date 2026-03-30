@@ -1,4 +1,3 @@
-// App.js
 import { useState } from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
 import GoalInput from './components/GoalInput';
@@ -10,14 +9,12 @@ export default function App() {
 
   function addGoalHandler(enteredGoalText) {
     if (enteredGoalText.trim().length === 0) return;
-
     setCourseGoals((currentGoals) => [
       ...currentGoals,
       { text: enteredGoalText, key: Math.random().toString() },
     ]);
   }
 
-  // DELETE FUNCTION
   function deleteGoalHandler(id) {
     setCourseGoals((currentGoals) =>
       currentGoals.filter((goal) => goal.key !== id)
@@ -27,19 +24,8 @@ export default function App() {
   return (
     <View style={styles.appContainer}>
       <Header />
-
-      <Image
-        source={{ uri: 'https://www.softo.org/imgs/blog/2023/07/1690190032univer-png.png' }}
-        style={styles.logo}
-      />
-
       <GoalInput onAddGoal={addGoalHandler} />
-
-      {/* COUNTER */}
-      <Text style={styles.counter}>
-        Total Goals: {courseGoals.length}
-      </Text>
-
+      <Text style={styles.counter}>Total Goals: {courseGoals.length}</Text>
       <GoalList goals={courseGoals} onDeleteGoal={deleteGoalHandler} />
     </View>
   );
@@ -48,8 +34,7 @@ export default function App() {
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: '#f7faf7',
   },
   logo: {
     width: 60,
@@ -58,10 +43,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   counter: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#1E293B',
+    fontSize: 13,
+    fontWeight: '500',
+    color: '#2d6e3a',
+    backgroundColor: '#dff0df',
+    alignSelf: 'flex-start',
+    marginHorizontal: 20,
     marginBottom: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 20,
+    overflow: 'hidden',
   },
-  
 });

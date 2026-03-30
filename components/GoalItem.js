@@ -1,17 +1,14 @@
-// GoalItem.js
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 function GoalItem(props) {
   return (
     <Pressable onPress={() => props.onDelete(props.id)}>
       <View style={styles.goalItem}>
-        
-        {/* LEFT: Goal Text */}
-        <Text style={styles.goalText}>{props.text}</Text>
-
-        {/* RIGHT: Delete Hint */}
+        <View style={styles.leftRow}>
+          <View style={styles.dot} />
+          <Text style={styles.goalText}>{props.text}</Text>
+        </View>
         <Text style={styles.deleteText}>Delete</Text>
-
       </View>
     </Pressable>
   );
@@ -19,28 +16,41 @@ function GoalItem(props) {
 
 const styles = StyleSheet.create({
   goalItem: {
-    backgroundColor: '#FFFFFF',
-    padding: 15,
-    marginVertical: 8,
-    borderRadius: 12,
+    backgroundColor: '#ffffff',
     borderWidth: 1,
-    borderColor: '#E2E8F0',
-
-   
+    borderColor: '#d4e8d4',
+    borderRadius: 12,
+    padding: 14,
+    marginVertical: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-
-  goalText: {
-    color: '#1E293B',
-    fontSize: 16,
+  leftRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
   },
-
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#4a9a5a',
+  },
+  goalText: {
+    color: '#1a2e1a',
+    fontSize: 14,
+  },
   deleteText: {
-    fontSize: 13,
-    color: '#EF4444',
-    fontWeight: '600',
+    fontSize: 12,
+    color: '#c0392b',
+    backgroundColor: '#fdf0ef',
+    borderWidth: 1,
+    borderColor: '#f5c6c3',
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    overflow: 'hidden',
   },
 });
 

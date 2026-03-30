@@ -1,4 +1,3 @@
-// GoalList.js
 import { View, FlatList, StyleSheet } from 'react-native';
 import GoalItem from './GoalItem';
 
@@ -11,7 +10,7 @@ function GoalList(props) {
           <GoalItem
             text={itemData.item.text}
             id={itemData.item.key}
-            onDelete={props.onDeleteGoal} 
+            onDelete={props.onDeleteGoal}
           />
         )}
       />
@@ -21,9 +20,8 @@ function GoalList(props) {
 
 const styles = StyleSheet.create({
   goalListContainer: {
-    flex: 4,
-    borderRadius: 12,
-    padding: 5,
+    flex: 1,
+    paddingHorizontal: 20,
   },
 });
 

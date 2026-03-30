@@ -1,4 +1,3 @@
-// Header.js
 import { View, Text, StyleSheet } from 'react-native';
 
 function Header() {
@@ -11,16 +10,17 @@ function Header() {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 15,
-    backgroundColor: '#60A5FA', 
-    marginBottom: 15,
-    borderRadius: 12,
+    backgroundColor: '#1a2e1a',
+    paddingVertical: 18,
+    paddingHorizontal: 20,
+    
   },
   title: {
-    color: '#ffffff',
-    fontSize: 18,
+    color: '#a8d5a2',
+    fontSize: 25,
+    fontWeight: '500',
     textAlign: 'center',
-    fontWeight: 'bold',
+    letterSpacing: 0.3,
   },
 });
 
