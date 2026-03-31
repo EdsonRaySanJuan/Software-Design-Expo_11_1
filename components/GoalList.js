@@ -1,3 +1,4 @@
+// GoalList.js
 import { View, FlatList, StyleSheet } from 'react-native';
 import GoalItem from './GoalItem';
 

@@ -3,14 +3,24 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 function GoalItem(props) {
   return (
-    <Pressable onPress={() => props.onDelete(props.id)}>
-      <View style={styles.goalItem}>
-        <View style={styles.leftRow}>
-          <View style={styles.dot} />
-          <Text style={styles.goalText}>{props.text}</Text>
-        </View>
-        <Text style={styles.deleteText}>Delete</Text>
+    <Pressable
+      onPress={() => props.onDelete(props.id)}
+      onLongPress={() => console.log('Long pressed:', props.text)}
+      onPressIn={() => console.log('Press started')}
+      onPressOut={() => console.log('Press ended')}
+      delayLongPress={800}
+      hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+      android_ripple={{ color: '#d4e8d4' }}
+      style={({ pressed }) => [
+        styles.goalItem,
+        pressed && styles.goalItemPressed
+      ]}
+    >
+      <View style={styles.leftRow}>
+        <View style={styles.dot} />
+        <Text style={styles.goalText}>{props.text}</Text>
       </View>
+      <Text style={styles.deleteText}>Delete</Text>
     </Pressable>
   );
 }
@@ -26,6 +36,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  goalItemPressed: {
+    backgroundColor: '#e8f5e9',
+    opacity: 0.85,
   },
   leftRow: {
     flexDirection: 'row',

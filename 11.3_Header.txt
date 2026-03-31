@@ -1,23 +1,15 @@
+
 // Header.js
-import { View, Text, StyleSheet, Pressable, Alert } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 function Header() {
-  // Function to handle the welcome pop-up
-  function welcomeHandler() {
-    Alert.alert(
-      "Welcome!", 
-      "Welcome to the Goal List Application! Let's get productive today.",
-      [{ text: "Okay", style: "default" }]
-    );
-  }
-
   return (
     <View style={styles.header}>
       <Text style={styles.title}>My Course Goals</Text>
 
       <Pressable
-        onPress={welcomeHandler}
+        onPress={() => console.log('Library icon tapped!')}
         style={({ pressed }) => pressed && { opacity: 0.5 }}
       >
         <MaterialIcons name="library-books" size={28} color="#a8d5a2" />
